@@ -1,12 +1,19 @@
 #include "monty.h"
-void push(Node** top, int value, int line_number)
+/**
+ * push - function to add to the stack
+ * @top: top of stack
+ * @value: data stored
+ * @line_number: file line number
+ * Return: void
+ */
+void push(Node **top, int value, int line_number)
 {
-	Node* newNode = malloc(sizeof(Node));
+	Node *newNode = malloc(sizeof(Node));
 
 	if (!value)
 	{
-        fprintf(stderr, "L%d: usage: push integer\n", line_number);
-        exit(EXIT_FAILURE);
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
+		exit(EXIT_FAILURE);
 	}
 	if (newNode == NULL)
 	{
@@ -17,7 +24,12 @@ void push(Node** top, int value, int line_number)
 	newNode->next = *top;
 	*top = newNode;
 }
-void pall(Node* top)
+/**
+ * pall - function to print all values on stack
+ * @top: top of the stack
+ * Return: void
+ */
+void pall(Node *top)
 {
 	while (top != NULL)
 	{
